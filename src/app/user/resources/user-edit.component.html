@@ -1,0 +1,12 @@
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)">
+    <p-panel header="Modificar usuario">
+        <input-molecule [parentForm]="userForm" id="username" label="Usuario"></input-molecule>
+        <input-molecule [parentForm]="userForm" id="fullName" label="Nombre completo"></input-molecule>
+        <input-molecule [parentForm]="userForm" id="password" label="Contraseña"></input-molecule>
+
+        <p-footer>
+            <button pButton type="button" (click)="cancel()"  icon="pi pi-save" label="Cancelar" class="ui-button-info" style="margin-right: .25em"></button>
+            <button pButton type="submit" [disabled]="!userForm.valid" type="submit" icon="pi pi-times-circle" label="Modificar" class="ui-button-info"></button>
+        </p-footer>
+    </p-panel>
+</form>
