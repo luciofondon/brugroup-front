@@ -20,12 +20,12 @@ export class UserAddComponent implements OnInit {
   
     ngOnInit() {
       this.userForm = this.formBuilder.group({
-        'fullName' : [null, Validators.required],
-        'username' : [null, Validators.required],
-        'password' : [null, Validators.required]
+        'fullName' : [null, Validators.compose([Validators.required, Validators.maxLength(200), Validators.pattern("^[A-Za-z\\s]*$")])],
+        'username' : [null, Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern("^[A-Za-z0-9]*$")])],
+        'password' : [null, Validators.compose([Validators.required, Validators.minLength(8), Validators.pattern("^[a-zA-Z]*(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]*[a-zA-Z]*$")])]
       });
     }
-  
+
     onFormSubmit(form:NgForm) {
       this.api.addUser(form)
         .subscribe(res => {

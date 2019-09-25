@@ -13,8 +13,13 @@ const httpOptions = {
 @Injectable()
 export class UserService {
   private readonly API_COUNTRY_URI = environment.apiUrl + '/api/users';
+  private readonly PATH_WS = '/ws';
 
-  constructor(private http: HttpClient) { }
+  private isWS : boolean;
+
+  constructor(private http: HttpClient) { 
+    this.isWS = false;
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -27,6 +32,7 @@ export class UserService {
     };
   }
 
+
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.API_COUNTRY_URI)
       .pipe(
@@ -36,7 +42,8 @@ export class UserService {
   }
 
   getUser(id: number): Observable<User> {
-    const url = `${this.API_COUNTRY_URI}/${id}`;
+    let url = `${this.API_COUNTRY_URI}/${id}`;
+    url = this.isWS ? `${url}${this.PATH_WS}` : url;
     return this.http.get<User>(url).pipe(
       tap(_ => console.log(`fetched user id=${id}`)),
       catchError(this.handleError<User>(`getUser id=${id}`))

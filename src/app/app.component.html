@@ -1,16 +1,29 @@
-<div style="text-align:center">
-  <a [routerLink]="['home']">
-    <img width="300" alt="Logo" src="./assets/logo.png">
-  </a>
-</div>
+<div class="wrapper">
+  	<header-custom></header-custom>
+	<section class="section section--white section--padding">
+		<div id="docs" class="content">
 
-<div class="container">
-  <div class="row">
-      <div class="col-2">
-          <p-menu [model]="items"></p-menu>
-      </div>
-      <div class="col-10">
-          <router-outlet></router-outlet>
-      </div>
-  </div>
+			<div class="contents">
+
+				<div class="doc-side-menu">
+					<p>&nbsp;</p>
+					<i class="la la-bars toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+		
+					<menu></menu>
+				</div>
+
+				<div class="contents__box contents__box--right">
+					<div class="section">
+
+						<router-outlet></router-outlet>
+		
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<footer-custom></footer-custom>
+
 </div>

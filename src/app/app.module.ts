@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MenuModule } from 'primeng/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MenuModule,
     BrowserAnimationsModule,
+    UserModule,
 
   ],
   providers: [],

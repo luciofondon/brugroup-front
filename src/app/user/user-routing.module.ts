@@ -20,7 +20,6 @@ const routes: Routes = [
     component: UserEditComponent,
     data: { title: 'Edit User' }
   }
-
 ];
 
 @NgModule({

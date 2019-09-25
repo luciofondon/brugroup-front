@@ -1,0 +1,10 @@
+<div class="menu-list">
+  <ul id="menu-content" class="menu-content collapse">
+    <li [className]="option==1 ? 'active': ''">
+        <a [routerLink]="['home']" (click)="handleClickMenu(1)">Documentación</a>
+    </li>
+    <li [className]="option==2 ? 'active': ''">
+        <a [routerLink]="['users']" (click)="handleClickMenu(2)">Users</a>
+    </li>
+  </ul>				
+</div>
