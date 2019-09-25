@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuModule } from 'primeng/menu';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MenuModule,
+    BrowserAnimationsModule,
+    UserModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
